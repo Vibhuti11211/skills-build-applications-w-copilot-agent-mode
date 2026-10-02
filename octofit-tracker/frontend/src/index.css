@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --forest: #1d3027;
+  --ink: #24372d;
+  --lime: #d5f46a;
+  --coral: #ee775b;
+  --surface: #ffffff;
+  --line: #e5eae2;
+  --body: 'DM Sans', 'Avenir Next', sans-serif;
+  --display: 'Space Grotesk', 'Avenir Next', sans-serif;
+  --mono: 'DM Mono', 'SFMono-Regular', monospace;
+
+  font-family: var(--body);
+  color: var(--ink);
+  background: #f0f3ed;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f0f3ed;
+  background-image:
+    linear-gradient(rgb(45 68 52 / 3%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(45 68 52 / 3%) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
