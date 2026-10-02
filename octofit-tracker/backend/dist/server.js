@@ -9,6 +9,24 @@ const port = 8000;
 const baseUrl = process.env.CODESPACE_NAME
     ? `https://${process.env.CODESPACE_NAME}-8000.app.github.dev`
     : 'http://localhost:8000';
+const allowedOrigins = new Set(['http://localhost:5173']);
+if (process.env.CODESPACE_NAME) {
+    allowedOrigins.add(`https://${process.env.CODESPACE_NAME}-5173.app.github.dev`);
+}
+app.use((request, response, next) => {
+    const origin = request.get('origin');
+    if (origin && allowedOrigins.has(origin)) {
+        response.setHeader('Access-Control-Allow-Origin', origin);
+        response.setHeader('Vary', 'Origin');
+    }
+    if (request.method === 'OPTIONS') {
+        response.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
+        response.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+        response.sendStatus(204);
+        return;
+    }
+    next();
+});
 app.use(express.json());
 function listHandler(model) {
     return async (_request, response) => {
