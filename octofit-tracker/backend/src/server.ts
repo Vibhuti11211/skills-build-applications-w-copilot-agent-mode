@@ -7,7 +7,7 @@ import User from './models/User.js';
 import Workout from './models/Workout.js';
 
 const app = express();
-const port = Number(process.env.PORT ?? 8000);
+const port = 8000;
 const baseUrl = process.env.CODESPACE_NAME
   ? `https://${process.env.CODESPACE_NAME}-8000.app.github.dev`
   : 'http://localhost:8000';
